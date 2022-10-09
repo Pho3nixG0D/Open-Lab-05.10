@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Open_Lab_05._10
 {
@@ -6,7 +8,14 @@ namespace Open_Lab_05._10
     {
         public int MysteryFunc(int num)
         {
-            throw new NotImplementedException();
+            int result = 1;
+            string nums = num.ToString();
+
+            for (int i = 0; i < nums.Length; i++)
+            {
+                result *= (int)Char.GetNumericValue(nums[i]);
+            }
+            return result;
         }
     }
 }
